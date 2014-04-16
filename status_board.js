@@ -1,18 +1,39 @@
+// Node server requires . . . 
 var express = require('express');
 var app = express();
 var rest = require('restler');
 var auth = require('http-auth');
-var basic = auth.basic({
-	realm: "Status Board",
-	file: "creds/users.htpasswd"
-});
-var config = require('./creds/api_config');
+var config = require('./creds/config');
 
-app.use('/images',express.static(__dirname + '/images'));
+// constants for .gitignored local values or Heroku environment constants
+var BOARD = process.env.BOARD || config.trello.board;
+var APP_KEY = process.env.APP_KEY || config.trello.app_key;
+var APP_TOKEN = process.env.APP_TOKEN || config.trello.app_token;
+var MEMBER_ALLAN = process.env.MEMBER_ALLAN || config.trello.member_allan;
+var MEMBER_GREG = process.env.MEMBER_GREG || config.trello.member_greg;
+var MEMBER_STEVE = process.env.MEMBER_STEVE || config.trello.member_steve;
+
+var USERNAME = process.env.USERNAME || config.authenticate.username;
+var PASSWORD = process.env.PASSWORD || config.authenticate.password;
+
+// HTTP authentication
+var basic = auth.basic({realm: "Status Board"}, 
+	function(username,password,callback) {
+		callback(username === "USERNAME" && password === "PASSWORD");
+	}
+);
+
 app.use(auth.connect(basic));
 
-app.route('/projects').get(function (req,res) {
-	rest.get('https://api.trello.com/1/board/' + config.trello.board + '/cards?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', function(data) {
+// Static path for images that get called from within the table markup
+app.use('/images',express.static(__dirname + '/images'));
+
+// Fire it up
+app.listen(8080);
+
+// Routes
+app.route('/projects').get(function(req,res) {
+	rest.get('https://api.trello.com/1/board/' + BOARD + '/cards?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data) {
 		var arr = data.filter(function(element) {
 			return element.idList === config.trello.doing_list;
 		});
@@ -30,14 +51,14 @@ app.route('/projects').get(function (req,res) {
 		);
 
 		// HTML table body
-		arr.forEach(function (element,index) {
+		arr.forEach(function(element,index) {
 
 			var html_persons_array = [],
 				html_statusbars_array = [];
 
 			// team members or 'persons'
-			element.idMembers.forEach(function (element,index) {
-				if (element === config.trello.member_allan || element === config.trello.member_greg || element === config.trello.member_steve) {
+			element.idMembers.forEach(function(element,index) {
+				if (element === MEMBER_ALLAN || element === MEMBER_GREG || element === MEMBER_STEVE) {
 					html_persons_array.push('<img class="person" style="margin-left:4px;" src="/images/' + element + '.png" />');
 				}
 			});
@@ -76,7 +97,7 @@ app.route('/projects').get(function (req,res) {
 	});
 });
 
-app.route('/team').get(function (req,res) {
+app.route('/team').get(function(req,res) {
 	var team_statuses = [];
 
 	var getStatus = function(member_id,member_name,member_bio) {
@@ -95,7 +116,7 @@ app.route('/team').get(function (req,res) {
 			);
 
 			// HTML table body
-			team_statuses.forEach(function(element ){
+			team_statuses.forEach(function(element){
 				html_array.push('<tr>\n' +
 					'<td class="projectPersons"><img class="person" style="margin-left:4px;" src="/images/' + element.id + '.png" /></td>\n' +
 					'<td class="projectName">' + element.name + '</td>\n' +
@@ -111,17 +132,15 @@ app.route('/team').get(function (req,res) {
 		}
 	};
 
-	rest.get('https://api.trello.com/1/members/' + config.trello.member_allan + '?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', function(data){
+	rest.get('https://api.trello.com/1/members/' + MEMBER_ALLAN + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
 		getStatus(data.id,data.fullName,data.bio);
 	});
 
-	rest.get('https://api.trello.com/1/members/' + config.trello.member_greg + '?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', function(data){
+	rest.get('https://api.trello.com/1/members/' + MEMBER_GREG + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
 		getStatus(data.id,data.fullName,data.bio);
 	});
 
-	rest.get('https://api.trello.com/1/members/' + config.trello.member_steve + '?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', function(data){
+	rest.get('https://api.trello.com/1/members/' + MEMBER_STEVE + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
 		getStatus(data.id,data.fullName,data.bio);
 	});
 });
-
-app.listen(8080);
