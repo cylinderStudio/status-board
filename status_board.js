@@ -8,7 +8,8 @@ var basic = auth.basic({
 });
 var config = require('./creds/api_config');
 
-// app.use(express.static(__dirname + '/images'));
+//app.use(express.static(__dirname + '/images'));
+// app.use(express.static(__dirname));
 app.use(auth.connect(basic));
 
 app.route('/projects').get(function (req,res) {
@@ -22,8 +23,8 @@ app.route('/projects').get(function (req,res) {
 
 		// HTML table header
 		html_array.push('<tr>\n' +
-				'<th>Project</th>\n' +
-				'<th>Due</th>\n' +
+				'<th style="width: 750px;">Project</th>\n' +
+				'<th style="width: 90px;">Due</th>\n' +
 				'<th>Team</th>\n' +
 				'<th>% Complete</th>\n' +
 			'</tr>'
@@ -58,8 +59,8 @@ app.route('/projects').get(function (req,res) {
 			var displayDate = (tempDate.getMonth() + 1) + '/' + tempDate.getDate();
 
 			html_array.push('<tr>\n' +
-							'<td class="projectName" style="width: 650px">' + element.name + '</td>\n' +
-							'<td class="projectVersion" style="width: 90px">' + displayDate + '</td>\n' +
+							'<td class="projectName">' + element.name + '</td>\n' +
+							'<td class="projectVersion">' + displayDate + '</td>\n' +
 							'<td class="projectPersons">' + html_persons_array.join('') +
 							'</td>\n' +
 							'<td class="projectsBars">\n' +
@@ -77,29 +78,29 @@ app.route('/projects').get(function (req,res) {
 });
 
 app.route('/team').get(function (req,res) {
-	rest.get('https://api.trello.com/1/members/' + config.trello.member_allan + '?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', getStatus(data.id,data.fullName,data.bio));
-
 	var team_statuses = [];
 
 	var getStatus = function(member_id,member_name,member_bio) {
 		team_statuses.push({id: member_id, name: member_name, status: member_bio});
+
 		if (team_statuses.length === 3) {
 			// HTML table begin
 			var html_array = ['<table id="projects">\n'];
 
 			// HTML table header
 			html_array.push('<tr>\n' +
-					'<th></th>\n' +
+					'<th style="width: 45px;"></th>\n' +
 					'<th>Team Member</th>\n' +
 					'<th>Status</th>\n' +
 				'</tr>'
 			);
 
+			// HTML table body
 			team_statuses.forEach(function(element ){
 				html_array.push('<tr>\n' +
 					'<td class="projectPersons"><img class="person" style="margin-left:4px;" src="' + element.id + '.png" /></td>\n' +
-					'<td class="projectName" style="width: 250px">' + element.name + '</td>\n' +
-					'<td class="projectVersion" style="width: 90px">' + element.status + '</td>\n' +
+					'<td class="projectName">' + element.name + '</td>\n' +
+					'<td class="projectVersion">' + element.status + '</td>\n' +
 				'</tr>\n');
 			});
 
@@ -110,6 +111,18 @@ app.route('/team').get(function (req,res) {
 			res.send(html_array.join(''));
 		}
 	};
+
+	rest.get('https://api.trello.com/1/members/' + config.trello.member_allan + '?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', function(data){
+		getStatus(data.id,data.fullName,data.bio);
+	});
+
+	rest.get('https://api.trello.com/1/members/' + config.trello.member_greg + '?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', function(data){
+		getStatus(data.id,data.fullName,data.bio);
+	});
+
+	rest.get('https://api.trello.com/1/members/' + config.trello.member_steve + '?key=' + config.trello.app_key + '&token=' + config.trello.app_token).on('complete', function(data){
+		getStatus(data.id,data.fullName,data.bio);
+	});
 });
 
 app.listen(8080);
