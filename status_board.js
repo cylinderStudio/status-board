@@ -8,8 +8,7 @@ var basic = auth.basic({
 });
 var config = require('./creds/api_config');
 
-//app.use(express.static(__dirname + '/images'));
-// app.use(express.static(__dirname));
+app.use('/images',express.static(__dirname + '/images'));
 app.use(auth.connect(basic));
 
 app.route('/projects').get(function (req,res) {
@@ -23,10 +22,10 @@ app.route('/projects').get(function (req,res) {
 
 		// HTML table header
 		html_array.push('<tr>\n' +
-				'<th style="width: 750px;">Project</th>\n' +
+				'<th style="width: 960px;">Project</th>\n' +
 				'<th style="width: 90px;">Due</th>\n' +
-				'<th>Team</th>\n' +
-				'<th>% Complete</th>\n' +
+				'<th style="width: 120px;">Team</th>\n' +
+				'<th>% Done</th>\n' +
 			'</tr>'
 		);
 
@@ -39,7 +38,7 @@ app.route('/projects').get(function (req,res) {
 			// team members or 'persons'
 			element.idMembers.forEach(function (element,index) {
 				if (element === config.trello.member_allan || element === config.trello.member_greg || element === config.trello.member_steve) {
-					html_persons_array.push('<img class="person" style="margin-left:4px;" src="' + element + '.png" />');
+					html_persons_array.push('<img class="person" style="margin-left:4px;" src="/images/' + element + '.png" />');
 				}
 			});
 
@@ -63,7 +62,7 @@ app.route('/projects').get(function (req,res) {
 							'<td class="projectVersion">' + displayDate + '</td>\n' +
 							'<td class="projectPersons">' + html_persons_array.join('') +
 							'</td>\n' +
-							'<td class="projectsBars">\n' +
+							'<td class="projectsBars">' +
 								html_statusbars_array.join('') +
 							'</td>\n' +
 						'</tr>\n');
@@ -98,7 +97,7 @@ app.route('/team').get(function (req,res) {
 			// HTML table body
 			team_statuses.forEach(function(element ){
 				html_array.push('<tr>\n' +
-					'<td class="projectPersons"><img class="person" style="margin-left:4px;" src="' + element.id + '.png" /></td>\n' +
+					'<td class="projectPersons"><img class="person" style="margin-left:4px;" src="/images/' + element.id + '.png" /></td>\n' +
 					'<td class="projectName">' + element.name + '</td>\n' +
 					'<td class="projectVersion">' + element.status + '</td>\n' +
 				'</tr>\n');
