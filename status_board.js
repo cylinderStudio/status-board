@@ -97,6 +97,20 @@ app.route('/projects').get(function(req,res) {
 	});
 });
 
+app.route('/logo').get(function(req,res) {
+	res.send('<html>\n' +
+		'<head>\n' +
+			'<title>Status board logo</title>\n' +
+			'<meta application-name="Status board logo" data-allows-resizing="NO" data-default-size="4" data-min-size="4" data-max-size="4" data-allows-scrolling="NO" />\n' +
+			'</meta>\n' +
+		'</head>\n' =
+		'<body>\n' +
+			'<img src="images/em_logo.png" />\n' +
+		'</body>\n' +
+	'</html>'
+	);
+});
+
 app.route('/team').get(function(req,res) {
 	var team_statuses = [];
 
