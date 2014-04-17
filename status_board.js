@@ -19,17 +19,17 @@ var PASSWORD = process.env.PASSWORD || config.authenticate.password;
 // HTTP authentication
 var basic = auth.basic({realm: "Status Board"}, 
 	function(username,password,callback) {
-		callback(username === "USERNAME" && password === "PASSWORD");
+		callback(username === USERNAME && password === PASSWORD);
 	}
 );
 
 app.use(auth.connect(basic));
 
-// Static path for images that get called from within the table markup
-app.use('/images',express.static(__dirname + '/images'));
-
 // Fire it up
 app.listen(8080);
+
+// Static path for images that get called from within the table markup
+app.use('/images',express.static(__dirname + '/images'));
 
 // Routes
 app.route('/projects').get(function(req,res) {
@@ -101,11 +101,13 @@ app.route('/logo').get(function(req,res) {
 	res.send('<html>\n' +
 		'<head>\n' +
 			'<title>Status board logo</title>\n' +
-			'<meta application-name="Status board logo" data-allows-resizing="NO" data-default-size="4" data-min-size="4" data-max-size="4" data-allows-scrolling="NO" />\n' +
+			'<meta application-name="Status board logo" data-allows-resizing="NO" data-default-size="4,4" data-min-size="4,4" data-max-size="4,4" data-allows-scrolling="NO" />\n' +
 			'</meta>\n' +
 		'</head>\n' +
-		'<body>\n' +
-			'<img src="images/em_logo.png" />\n' +
+		'<body">\n' +
+			'<div style="display: table; width: 100%; height: 100%;">\n' +
+				'<div style="display:table-cell; vertical-align:middle; text-align:center;"><img src="/images/em_logo.png" width="150" height="150" /></div>\n' +
+			'</div>\n' +
 		'</body>\n' +
 	'</html>'
 	);
