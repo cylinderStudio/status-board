@@ -32,6 +32,70 @@ app.listen(8080);
 app.use('/images',express.static(__dirname + '/images'));
 
 // Routes
+app.route('/logo').get(function(req,res) {
+	res.send('<html>\n' +
+		'<head>\n' +
+			'<title>Status board logo</title>\n' +
+			'<meta application-name="Status board logo" data-allows-resizing="NO" data-default-size="4,4" data-min-size="4,4" data-max-size="4,4" data-allows-scrolling="NO" />\n' +
+			'</meta>\n' +
+		'</head>\n' +
+		'<body">\n' +
+			'<div style="display: table; width: 100%; height: 100%;">\n' +
+				'<div style="display:table-cell; vertical-align:middle; text-align:center;"><img src="/images/em_logo.png" width="150" height="150" /></div>\n' +
+			'</div>\n' +
+		'</body>\n' +
+	'</html>'
+	);
+});
+
+app.route('/team').get(function(req,res) {
+	var team_statuses = [];
+
+	var getStatus = function(member_id,member_name,member_bio) {
+		team_statuses.push({id: member_id, name: member_name, status: member_bio});
+
+		if (team_statuses.length === 3) {
+			// HTML table begin
+			var html_array = ['<table id="projects">\n'];
+
+			// HTML table header
+			html_array.push('<tr>\n' +
+					'<th style="width: 45px;"></th>\n' +
+					'<th>Team Member</th>\n' +
+					'<th>Status</th>\n' +
+				'</tr>'
+			);
+
+			// HTML table body
+			team_statuses.forEach(function(element) {
+				html_array.push('<tr>\n' +
+					'<td class="projectPersons"><img class="person" style="margin-left:4px;" src="/images/' + element.id + '.png" /></td>\n' +
+					'<td class="projectName">' + element.name + '</td>\n' +
+					'<td class="projectVersion">' + element.status + '</td>\n' +
+				'</tr>\n');
+			});
+
+			// HTML table end
+			html_array.push('</table>');
+
+			// serve to browser request
+			res.send(html_array.join(''));
+		}
+	};
+
+	rest.get('https://api.trello.com/1/members/' + MEMBER_ALLAN + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
+		getStatus(data.id,data.fullName,data.bio);
+	});
+
+	rest.get('https://api.trello.com/1/members/' + MEMBER_GREG + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
+		getStatus(data.id,data.fullName,data.bio);
+	});
+
+	rest.get('https://api.trello.com/1/members/' + MEMBER_STEVE + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
+		getStatus(data.id,data.fullName,data.bio);
+	});
+});
+
 app.route('/projects').get(function(req,res) {
 	rest.get('https://api.trello.com/1/board/' + BOARD + '/cards?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data) {
 		var arr = data.filter(function(element) {
@@ -95,68 +159,11 @@ app.route('/projects').get(function(req,res) {
 		// serve to browser request
 		res.send(html_array.join(''));
 	});
+
+app.route('/goals').get(function(req,res) {
+	rest.get('').on('complete', function(data) {
+
+	});
 });
 
-app.route('/logo').get(function(req,res) {
-	res.send('<html>\n' +
-		'<head>\n' +
-			'<title>Status board logo</title>\n' +
-			'<meta application-name="Status board logo" data-allows-resizing="NO" data-default-size="4,4" data-min-size="4,4" data-max-size="4,4" data-allows-scrolling="NO" />\n' +
-			'</meta>\n' +
-		'</head>\n' +
-		'<body">\n' +
-			'<div style="display: table; width: 100%; height: 100%;">\n' +
-				'<div style="display:table-cell; vertical-align:middle; text-align:center;"><img src="/images/em_logo.png" width="150" height="150" /></div>\n' +
-			'</div>\n' +
-		'</body>\n' +
-	'</html>'
-	);
-});
-
-app.route('/team').get(function(req,res) {
-	var team_statuses = [];
-
-	var getStatus = function(member_id,member_name,member_bio) {
-		team_statuses.push({id: member_id, name: member_name, status: member_bio});
-
-		if (team_statuses.length === 3) {
-			// HTML table begin
-			var html_array = ['<table id="projects">\n'];
-
-			// HTML table header
-			html_array.push('<tr>\n' +
-					'<th style="width: 45px;"></th>\n' +
-					'<th>Team Member</th>\n' +
-					'<th>Status</th>\n' +
-				'</tr>'
-			);
-
-			// HTML table body
-			team_statuses.forEach(function(element){
-				html_array.push('<tr>\n' +
-					'<td class="projectPersons"><img class="person" style="margin-left:4px;" src="/images/' + element.id + '.png" /></td>\n' +
-					'<td class="projectName">' + element.name + '</td>\n' +
-					'<td class="projectVersion">' + element.status + '</td>\n' +
-				'</tr>\n');
-			});
-
-			// HTML table end
-			html_array.push('</table>');
-
-			// serve to browser request
-			res.send(html_array.join(''));
-		}
-	};
-
-	rest.get('https://api.trello.com/1/members/' + MEMBER_ALLAN + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
-		getStatus(data.id,data.fullName,data.bio);
-	});
-
-	rest.get('https://api.trello.com/1/members/' + MEMBER_GREG + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
-		getStatus(data.id,data.fullName,data.bio);
-	});
-
-	rest.get('https://api.trello.com/1/members/' + MEMBER_STEVE + '?key=' + APP_KEY + '&token=' + APP_TOKEN).on('complete', function(data){
-		getStatus(data.id,data.fullName,data.bio);
-	});
 });
