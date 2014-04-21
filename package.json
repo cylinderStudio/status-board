@@ -1,0 +1,16 @@
+{
+  "name": "status-board",
+  "version": "1.0.0",
+  "description": "Tracking Trello status with Panic Status Board",
+  "main": "status_board.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cylinder-studio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.0.0",
+    "restler": "^3.2.1",
+    "http-auth": "^2.1.7"
+  }
+}
