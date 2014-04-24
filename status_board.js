@@ -56,31 +56,7 @@ app.route('/team').get(function(req,res) {
 		team_statuses.push({id: member_id, name: member_name, status: member_bio});
 
 		if (team_statuses.length === 3) {
-			// HTML table begin
-			var html_array = ['<table id="projects">\n'];
-
-			// HTML table header
-			html_array.push('<tr>\n' +
-					'<th style="width: 45px;"></th>\n' +
-					'<th>Team Member</th>\n' +
-					'<th>Status</th>\n' +
-				'</tr>'
-			);
-
-			// HTML table body
-			team_statuses.forEach(function(element) {
-				html_array.push('<tr>\n' +
-					'<td class="projectPersons"><img class="person" style="margin-left:4px;" src="/images/' + element.id + '.png" /></td>\n' +
-					'<td class="projectName">' + element.name + '</td>\n' +
-					'<td class="projectVersion">' + element.status + '</td>\n' +
-				'</tr>\n');
-			});
-
-			// HTML table end
-			html_array.push('</table>');
-
-			// serve to browser request
-			res.send(html_array.join(''));
+			res.render('team',{title:'Team', team_statuses: team_statuses});
 		}
 	};
 
