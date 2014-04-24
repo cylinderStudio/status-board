@@ -4,6 +4,7 @@ var app = express();
 var rest = require('restler');
 var auth = require('http-auth');
 var config = require('./creds/config');
+var stylus = require('stylus');
 
 // constants for .gitignored local values or Heroku environment constants
 var BOARD = process.env.BOARD || config.trello.board;
@@ -25,27 +26,27 @@ var basic = auth.basic({realm: "Status Board"},
 
 app.use(auth.connect(basic));
 
+// Jade configuration
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jade');
+
+// Stylus configuration
+app.use(stylus.middleware({
+  src: __dirname + '/resources',
+  dest: __dirname,
+  force: true
+}));
+
+// Static path for images that get called from within the table markup
+app.use('/images', express.static(__dirname + '/images'));
+app.use('/stylesheet', express.static(__dirname + '/stylesheet'));
+
 // Fire it up
 app.listen(8080);
 
-// Static path for images that get called from within the table markup
-app.use('/images',express.static(__dirname + '/images'));
-
 // Routes
 app.route('/logo').get(function(req,res) {
-	res.send('<html>\n' +
-		'<head>\n' +
-			'<title>Status board logo</title>\n' +
-			'<meta application-name="Status board logo" data-allows-resizing="NO" data-default-size="4,4" data-min-size="4,4" data-max-size="4,4" data-allows-scrolling="NO" />\n' +
-			'</meta>\n' +
-		'</head>\n' +
-		'<body">\n' +
-			'<div style="display: table; width: 100%; height: 100%;">\n' +
-				'<div style="display:table-cell; vertical-align:middle; text-align:center;"><img src="/images/em_logo.png" width="150" height="150" /></div>\n' +
-			'</div>\n' +
-		'</body>\n' +
-	'</html>'
-	);
+	res.render('logo',{title:'Logo'});
 });
 
 app.route('/team').get(function(req,res) {

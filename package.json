@@ -1,7 +1,7 @@
 {
   "name": "status-board",
   "version": "1.0.0",
-  "description": "Tracking Trello status with Panic Status Board",
+  "description": "Display Trello data with Panic Status Board",
   "main": "status_board.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
