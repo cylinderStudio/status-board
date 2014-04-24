@@ -85,62 +85,35 @@ app.route('/projects').get(function(req,res) {
 			return element.idList === config.trello.doing_list;
 		});
 
-		// HTML table begin
-		var html_array = ['<table id="projects">\n'];
+		projects = [];
 
-		// HTML table header
-		html_array.push('<tr>\n' +
-				'<th style="width: 960px;">Project</th>\n' +
-				'<th style="width: 90px;">Due</th>\n' +
-				'<th style="width: 120px;">Team</th>\n' +
-				'<th>% Done</th>\n' +
-			'</tr>'
-		);
-
-		// HTML table body
 		arr.forEach(function(element,index) {
+			var project = {};
+			var team = [];
 
-			var html_persons_array = [],
-				html_statusbars_array = [];
-
-			// team members or 'persons'
 			element.idMembers.forEach(function(element,index) {
 				if (element === MEMBER_ALLAN || element === MEMBER_GREG || element === MEMBER_STEVE) {
-					html_persons_array.push('<img class="person" style="margin-left:4px;" src="/images/' + element + '.png" />');
+					team.push(element);
 				}
 			});
 
-			// status bars based on tasks completed
-			if (element.badges.checkItems === 0) {
-				html_statusbars_array.push('<div class="barSegment value1"></div>');
-			} else {
-				var barCount = Math.ceil((element.badges.checkItemsChecked / element.badges.checkItems) * 8);
+			project.team = team;
 
-				for (var i=1; i<barCount; i++) {
-					html_statusbars_array.push('<div class="barSegment value' + i + '"></div>\n');
-				}
+			if (element.badges.checkItems === 0) {
+				project.bars = 1;
+			} else {
+				project.bars = Math.ceil((element.badges.checkItemsChecked / element.badges.checkItems) * 8);
 			}
 
-			// project due date
 			var tempDate = new Date(element.due);
-			var displayDate = (tempDate.getMonth() + 1) + '/' + tempDate.getDate();
+			project.date = (tempDate.getMonth() + 1) + '/' + tempDate.getDate();
 
-			html_array.push('<tr>\n' +
-							'<td class="projectName">' + element.name + '</td>\n' +
-							'<td class="projectVersion">' + displayDate + '</td>\n' +
-							'<td class="projectPersons">' + html_persons_array.join('') +
-							'</td>\n' +
-							'<td class="projectsBars">' +
-								html_statusbars_array.join('') +
-							'</td>\n' +
-						'</tr>\n');
+			project.name = element.name;
+
+			projects.push(project);
 		});
-
-		// HTML table end
-		html_array.push('</table>');
-
-		// serve to browser request
-		res.send(html_array.join(''));
+		
+		res.render('projects', {title: 'Projects', projects: projects});
 	}).on('timeout', function(ms){
   		console.log('Trello did not return BOARD projects response within ' + ms + ' ms');
 	});

@@ -1,0 +1,16 @@
+table#projects
+	tr
+		th.projectColumn Project
+		th.dueColumn Due
+		th.teamColumn Team
+	each el in projects
+		tr
+			td.projectName #{el.name}
+			td.projectVersion #{el.date}
+			td.projectPersons
+				each member in el.team
+					img.person(style='margin-left:4px', src='/images/'+ member + '.png')
+			td.projectBars
+				- for (var i=1;i<=el.bars;i++) {
+				div.barSegment(value=i)
+				- }
