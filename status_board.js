@@ -39,9 +39,10 @@ app.use(stylus.middleware({
   force: true
 }));
 
-// Static path for images that get called from within the table markup
+// Static paths for local image, stylesheet and script load
 app.use('/images', express.static(__dirname + '/images'));
 app.use('/stylesheet', express.static(__dirname + '/stylesheet'));
+app.use('/js', express.static(__dirname + '/js'));
 
 // Fire it up
 app.listen(8080);

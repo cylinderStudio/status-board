@@ -6,8 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jane-doe/node-example.git"
+  },
   "author": "cylinder-studio",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.0.0",
     "restler": "^3.2.1",

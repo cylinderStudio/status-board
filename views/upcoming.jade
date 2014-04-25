@@ -9,7 +9,8 @@ html
 			data-max-size="8,4", 
 			data-allows-scrolling="YES")
 		link(rel='stylesheet', href='/stylesheet/style.css')
-	body
+		script(type='text/javascript', src='js/refresh.js')
+	body(onload='initRefresh(120000)')
 		h2.projectHeader Upcoming Initiatives
 		each project in projects
 			div.projectContainer
