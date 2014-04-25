@@ -1,4 +1,4 @@
 status-board
 ============
 
-Display Trello data with Panic Status Board
+Display Trello data in Panic Status Board with Node.js
