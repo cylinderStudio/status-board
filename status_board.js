@@ -6,8 +6,6 @@ var auth = require('http-auth');
 // var config = require('./creds/config');	// comment out if deploying to Heroku
 var stylus = require('stylus');
 
-console.log(process.env.BOARD);
-
 // constants for .gitignored local values or Heroku environment constants
 var BOARD = process.env.BOARD || config.trello.board;
 var APP_KEY = process.env.APP_KEY || config.trello.app_key;
@@ -47,7 +45,7 @@ app.use('/stylesheet', express.static(__dirname + '/stylesheet'));
 app.use('/js', express.static(__dirname + '/js'));
 
 // Fire it up
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
 // Routes
 app.route('/logo').get(function(req,res) {
