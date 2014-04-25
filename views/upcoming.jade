@@ -1,0 +1,22 @@
+doctype html
+html
+	head
+		title=title
+		meta(application-name="Status Board Upcoming Projects", 
+			data-allows-resizing="NO", 
+			data-default-size="8,4", 
+			data-min-size="8,4", 
+			data-max-size="8,4", 
+			data-allows-scrolling="YES")
+		link(rel='stylesheet', href='/stylesheet/style.css')
+	body
+		h2.projectHeader Upcoming Initiatives
+		each project in projects
+			div.projectContainer
+				div.badge 
+					img(src="/images/em_logo.png" width="20" height="20")
+				div.smallTitle #{project.name}
+				if project.labels[0]
+					div.smallLabel #{project.labels[0].name}
+				else
+					div.smallLabel Project

@@ -1,16 +1,18 @@
 table#projects
 	tr
-		th.projectColumn Project
-		th.dueColumn Due
-		th.teamColumn Team
-	each el in projects
+		th(style="width:960px;") Project
+		th(style="width:90px;") Due
+		th(style="width:120px;") Team
+		th Status
+	each project in projects
 		tr
-			td.projectName #{el.name}
-			td.projectVersion #{el.date}
+			td.projectName #{project.name}
+			td.projectVersion #{project.date}
 			td.projectPersons
-				each member in el.team
+				each member in project.team
 					img.person(style='margin-left:4px', src='/images/'+ member + '.png')
-			td.projectBars
-				- for (var i=1;i<=el.bars;i++) {
-				div.barSegment(value=i)
+			td.projectsBars
+				- for (var i=1;i<=project.bars;i++) {
+				- var classes=['barSegment','value'+i]
+				div(class=classes)
 				- }

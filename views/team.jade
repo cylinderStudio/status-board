@@ -3,9 +3,9 @@ table#projects
 		th(style='width:45px;')
 		th Team Member
 		th Status
-	each el in team_statuses
+	each member in team_statuses
 		tr
 			td.projectPersons
-				img.person(style='margin-left:4px', src='/images/'+ el.id + '.png')
-			td.projectName #{el.name}
-			td.projectVersion #{el.status}
+				img.person(style='margin-left:4px', src='/images/'+ member.id + '.png')
+			td.projectName #{member.name}
+			td.projectVersion #{member.status}

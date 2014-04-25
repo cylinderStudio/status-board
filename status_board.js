@@ -13,6 +13,8 @@ var APP_TOKEN = process.env.APP_TOKEN || config.trello.app_token;
 var MEMBER_ALLAN = process.env.MEMBER_ALLAN || config.trello.member_allan;
 var MEMBER_GREG = process.env.MEMBER_GREG || config.trello.member_greg;
 var MEMBER_STEVE = process.env.MEMBER_STEVE || config.trello.member_steve;
+var DOING_LIST = process.env.DOING_LIST || config.trello.doing_list;
+var TODO_LIST = process.env.TODO_LIST || config.trello.todo_list;
 
 var USERNAME = process.env.USERNAME || config.authenticate.username;
 var PASSWORD = process.env.PASSWORD || config.authenticate.password;
@@ -82,7 +84,7 @@ app.route('/team').get(function(req,res) {
 app.route('/projects').get(function(req,res) {
 	rest.get('https://api.trello.com/1/board/' + BOARD + '/cards?key=' + APP_KEY + '&token=' + APP_TOKEN, {timeout:10000}).on('complete', function(data) {
 		var arr = data.filter(function(element) {
-			return element.idList === config.trello.doing_list;
+			return element.idList === DOING_LIST;
 		});
 
 		projects = [];
@@ -112,16 +114,21 @@ app.route('/projects').get(function(req,res) {
 
 			projects.push(project);
 		});
-		
+
 		res.render('projects', {title: 'Projects', projects: projects});
 	}).on('timeout', function(ms){
   		console.log('Trello did not return BOARD projects response within ' + ms + ' ms');
 	});
-
-app.route('/goals').get(function(req,res) {
-	rest.get('').on('complete', function(data) {
-
-	});
 });
 
+app.route('/upcoming').get(function(req,res) {
+	rest.get('https://api.trello.com/1/board/' + BOARD + '/cards?key=' + APP_KEY + '&token=' + APP_TOKEN, {timeout:10000}).on('complete', function(data) {
+		var projects = data.filter(function(element) { 
+			return element.idList === TODO_LIST;
+		});
+
+		res.render('upcoming', {title: 'Upcoming Initiatives', projects: projects});
+	}).on('timeout', function(ms){
+		console.log('Trello did not return TODO_LIST projects')
+	});
 });
