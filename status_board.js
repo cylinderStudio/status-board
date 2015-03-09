@@ -57,7 +57,7 @@ app.route('/team').get(function(req,res) {
 	var getStatus = function(member_id,member_name,member_bio) {
 		team_statuses.push({id: member_id, name: member_name, status: member_bio});
 
-		if (team_statuses.length === 3) {
+		if (team_statuses.length === 2) {
 			res.render('team',{title:'Team', team_statuses: team_statuses});
 		}
 	};
