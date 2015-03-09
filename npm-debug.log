@@ -1,0 +1,327 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'gphoto2' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'gphoto2', null ]
+6 verbose cache add name=undefined spec="gphoto2" args=["gphoto2",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'gphoto2',
+7 verbose parsed url   path: 'gphoto2',
+7 verbose parsed url   href: 'gphoto2' }
+8 silly lockFile 0c993e77-gphoto2 gphoto2
+9 verbose lock gphoto2 /Users/wys3/.npm/0c993e77-gphoto2.lock
+10 silly lockFile 0c993e77-gphoto2 gphoto2
+11 silly lockFile 0c993e77-gphoto2 gphoto2
+12 verbose addNamed [ 'gphoto2', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile e67367ba-gphoto2 gphoto2@
+15 verbose lock gphoto2@ /Users/wys3/.npm/e67367ba-gphoto2.lock
+16 silly addNameRange { name: 'gphoto2', range: '*', hasData: false }
+17 verbose url raw gphoto2
+18 verbose url resolving [ 'https://registry.npmjs.org/', './gphoto2' ]
+19 verbose url resolved https://registry.npmjs.org/gphoto2
+20 info trying registry request attempt 1 at 16:36:18
+21 http GET https://registry.npmjs.org/gphoto2
+22 http 200 https://registry.npmjs.org/gphoto2
+23 silly registry.get cb [ 200,
+23 silly registry.get   { date: 'Fri, 02 May 2014 23:34:28 GMT',
+23 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+23 silly registry.get     etag: '"5A92UBVK9ZUA11G9D7AWKMAFP"',
+23 silly registry.get     'content-type': 'application/json',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'cache-control': 'max-age=1',
+23 silly registry.get     'content-length': '24823',
+23 silly registry.get     'accept-ranges': 'bytes',
+23 silly registry.get     age: '143',
+23 silly registry.get     'x-served-by': 'cache-v43-ASH, cache-d98-DAL',
+23 silly registry.get     'x-cache': 'MISS, MISS',
+23 silly registry.get     'x-cache-hits': '0, 0',
+23 silly registry.get     'x-timer': 'S1399073668.809388876,VS0,VS19,VE92,VE107',
+23 silly registry.get     vary: 'Accept',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 silly addNameRange number 2 { name: 'gphoto2', range: '*', hasData: true }
+25 silly addNameRange versions [ 'gphoto2',
+25 silly addNameRange   [ '0.0.1',
+25 silly addNameRange     '0.0.2',
+25 silly addNameRange     '0.0.3',
+25 silly addNameRange     '0.0.4',
+25 silly addNameRange     '0.0.5',
+25 silly addNameRange     '0.0.6',
+25 silly addNameRange     '0.1.1',
+25 silly addNameRange     '0.1.3',
+25 silly addNameRange     '0.1.4',
+25 silly addNameRange     '0.1.5',
+25 silly addNameRange     '0.1.6',
+25 silly addNameRange     '0.1.0-alpha1',
+25 silly addNameRange     '0.1.0-alpha2',
+25 silly addNameRange     '0.1.0-alpha3',
+25 silly addNameRange     '0.1.0-alpha4',
+25 silly addNameRange     '0.1.0-alpha5' ] ]
+26 verbose addNamed [ 'gphoto2', '0.1.6' ]
+27 verbose addNamed [ '0.1.6', '0.1.6' ]
+28 silly lockFile da13eeb8-gphoto2-0-1-6 gphoto2@0.1.6
+29 verbose lock gphoto2@0.1.6 /Users/wys3/.npm/da13eeb8-gphoto2-0-1-6.lock
+30 silly lockFile 347bf25e-js-org-gphoto2-gphoto2-0-1-6-tgz https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz
+31 verbose lock https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz /Users/wys3/.npm/347bf25e-js-org-gphoto2-gphoto2-0-1-6-tgz.lock
+32 verbose addRemoteTarball [ 'https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz',
+32 verbose addRemoteTarball   'dea9882e11edc51c5eefd328f42af254796efca7' ]
+33 info retry fetch attempt 1 at 16:36:19
+34 verbose fetch to= /var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/tmp.tgz
+35 http GET https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz
+36 http 200 https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz
+37 verbose tar unpack /var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/tmp.tgz
+38 silly lockFile 069ad6d7-79193-0-5251075159758329-package tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package
+39 verbose lock tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package /Users/wys3/.npm/069ad6d7-79193-0-5251075159758329-package.lock
+40 silly lockFile 79b10e07-79193-0-5251075159758329-tmp-tgz tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/tmp.tgz
+41 verbose lock tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/tmp.tgz /Users/wys3/.npm/79b10e07-79193-0-5251075159758329-tmp-tgz.lock
+42 silly gunzTarPerm modes [ '755', '644' ]
+43 silly gunzTarPerm extractEntry package.json
+44 silly gunzTarPerm extractEntry .npmignore
+45 silly gunzTarPerm extractEntry README.md
+46 silly gunzTarPerm extractEntry LICENSE
+47 silly gunzTarPerm extractEntry .travis.yml
+48 silly gunzTarPerm extractEntry binding.gyp
+49 silly gunzTarPerm extractEntry examples/public/index.html
+50 silly gunzTarPerm extractEntry examples/public/js/dat.gui.js
+51 silly gunzTarPerm extractEntry examples/series.coffee
+52 silly gunzTarPerm extractEntry examples/server.coffee
+53 silly gunzTarPerm extractEntry src/autodetect.cc
+54 silly gunzTarPerm extractEntry src/binding.cc
+55 silly gunzTarPerm extractEntry src/binding.h
+56 silly gunzTarPerm extractEntry src/camera.cc
+57 silly gunzTarPerm extractEntry src/camera.h
+58 silly gunzTarPerm extractEntry src/camera_helpers.cc
+59 silly gunzTarPerm extractEntry src/cvv8/LICENSE
+60 silly gunzTarPerm extractEntry src/cvv8/convert.hpp
+61 silly gunzTarPerm extractEntry src/cvv8/Makefile
+62 silly gunzTarPerm extractEntry src/cvv8/NativeToJSMap.hpp
+63 silly gunzTarPerm extractEntry src/cvv8/V8Shell.hpp
+64 silly gunzTarPerm extractEntry src/cvv8/XTo.hpp
+65 silly gunzTarPerm extractEntry src/cvv8/arguments.hpp
+66 silly gunzTarPerm extractEntry src/cvv8/ClassCreator.hpp
+67 silly gunzTarPerm extractEntry src/cvv8/detail/Makefile
+68 silly gunzTarPerm extractEntry src/cvv8/detail/convert_core.hpp
+69 silly gunzTarPerm extractEntry src/cvv8/detail/doxygen_hack.hpp
+70 silly gunzTarPerm extractEntry src/cvv8/detail/invocable_core.hpp
+71 silly gunzTarPerm extractEntry src/cvv8/detail/invocable_generated.hpp
+72 silly gunzTarPerm extractEntry src/cvv8/detail/signature_core.hpp
+73 silly gunzTarPerm extractEntry src/cvv8/detail/signature_generated.hpp
+74 silly gunzTarPerm extractEntry src/cvv8/detail/tmp.hpp
+75 silly gunzTarPerm extractEntry src/cvv8/generator/Signature.hpp
+76 silly gunzTarPerm extractEntry src/cvv8/invocable.hpp
+77 silly gunzTarPerm extractEntry src/cvv8/properties.hpp
+78 silly gunzTarPerm extractEntry src/cvv8/signature.hpp
+79 silly gunzTarPerm extractEntry src/cvv8/v8-convert.hpp
+80 silly gunzTarPerm extractEntry src/gphoto.cc
+81 silly gunzTarPerm extractEntry src/gphoto.h
+82 silly gunzTarPerm extractEntry test/camera.test.coffee
+83 silly gunzTarPerm extractEntry test/mocha.opts
+84 silly gunzTarPerm extractEntry util/cpplint.py
+85 silly gunzTarPerm extractEntry util/cpplint.sh
+86 silly lockFile 069ad6d7-79193-0-5251075159758329-package tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package
+87 silly lockFile 069ad6d7-79193-0-5251075159758329-package tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package
+88 silly lockFile 79b10e07-79193-0-5251075159758329-tmp-tgz tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/tmp.tgz
+89 silly lockFile 79b10e07-79193-0-5251075159758329-tmp-tgz tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/tmp.tgz
+90 verbose tar pack [ '/Users/wys3/.npm/gphoto2/0.1.6/package.tgz',
+90 verbose tar pack   '/var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package' ]
+91 verbose tarball /Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+92 verbose folder /var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package
+93 silly lockFile 069ad6d7-79193-0-5251075159758329-package tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package
+94 verbose lock tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package /Users/wys3/.npm/069ad6d7-79193-0-5251075159758329-package.lock
+95 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+96 verbose lock tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz /Users/wys3/.npm/ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz.lock
+97 silly lockFile 069ad6d7-79193-0-5251075159758329-package tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package
+98 silly lockFile 069ad6d7-79193-0-5251075159758329-package tar:///var/folders/c1/0xtfjf2j1mqdtb90mc92_1v5h43q9t/T/npm-17150-IqO1DgFV/1399073779193-0.5251075159758329/package
+99 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+100 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+101 silly lockFile 19fbb4f4-s-wys3-npm-gphoto2-0-1-6-package /Users/wys3/.npm/gphoto2/0.1.6/package
+102 verbose lock /Users/wys3/.npm/gphoto2/0.1.6/package /Users/wys3/.npm/19fbb4f4-s-wys3-npm-gphoto2-0-1-6-package.lock
+103 silly lockFile 19fbb4f4-s-wys3-npm-gphoto2-0-1-6-package /Users/wys3/.npm/gphoto2/0.1.6/package
+104 silly lockFile 19fbb4f4-s-wys3-npm-gphoto2-0-1-6-package /Users/wys3/.npm/gphoto2/0.1.6/package
+105 verbose tar unpack /Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+106 silly lockFile e1328933-s-wys3-npm-gphoto2-0-1-6-package tar:///Users/wys3/.npm/gphoto2/0.1.6/package
+107 verbose lock tar:///Users/wys3/.npm/gphoto2/0.1.6/package /Users/wys3/.npm/e1328933-s-wys3-npm-gphoto2-0-1-6-package.lock
+108 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+109 verbose lock tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz /Users/wys3/.npm/ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz.lock
+110 silly gunzTarPerm modes [ '755', '644' ]
+111 silly gunzTarPerm extractEntry package.json
+112 silly gunzTarPerm extractEntry .npmignore
+113 silly gunzTarPerm extractEntry README.md
+114 silly gunzTarPerm extractEntry LICENSE
+115 silly gunzTarPerm extractEntry .travis.yml
+116 silly gunzTarPerm extractEntry binding.gyp
+117 silly gunzTarPerm extractEntry examples/public/index.html
+118 silly gunzTarPerm extractEntry examples/public/js/dat.gui.js
+119 silly gunzTarPerm extractEntry examples/series.coffee
+120 silly gunzTarPerm extractEntry examples/server.coffee
+121 silly gunzTarPerm extractEntry src/autodetect.cc
+122 silly gunzTarPerm extractEntry src/binding.cc
+123 silly gunzTarPerm extractEntry src/binding.h
+124 silly gunzTarPerm extractEntry src/camera.cc
+125 silly gunzTarPerm extractEntry src/camera.h
+126 silly gunzTarPerm extractEntry src/camera_helpers.cc
+127 silly gunzTarPerm extractEntry src/cvv8/LICENSE
+128 silly gunzTarPerm extractEntry src/cvv8/convert.hpp
+129 silly gunzTarPerm extractEntry src/cvv8/Makefile
+130 silly gunzTarPerm extractEntry src/cvv8/NativeToJSMap.hpp
+131 silly gunzTarPerm extractEntry src/cvv8/V8Shell.hpp
+132 silly gunzTarPerm extractEntry src/cvv8/XTo.hpp
+133 silly gunzTarPerm extractEntry src/cvv8/arguments.hpp
+134 silly gunzTarPerm extractEntry src/cvv8/ClassCreator.hpp
+135 silly gunzTarPerm extractEntry src/cvv8/detail/Makefile
+136 silly gunzTarPerm extractEntry src/cvv8/detail/convert_core.hpp
+137 silly gunzTarPerm extractEntry src/cvv8/detail/doxygen_hack.hpp
+138 silly gunzTarPerm extractEntry src/cvv8/detail/invocable_core.hpp
+139 silly gunzTarPerm extractEntry src/cvv8/detail/invocable_generated.hpp
+140 silly gunzTarPerm extractEntry src/cvv8/detail/signature_core.hpp
+141 silly gunzTarPerm extractEntry src/cvv8/detail/signature_generated.hpp
+142 silly gunzTarPerm extractEntry src/cvv8/detail/tmp.hpp
+143 silly gunzTarPerm extractEntry src/cvv8/generator/Signature.hpp
+144 silly gunzTarPerm extractEntry src/cvv8/invocable.hpp
+145 silly gunzTarPerm extractEntry src/cvv8/properties.hpp
+146 silly gunzTarPerm extractEntry src/cvv8/signature.hpp
+147 silly gunzTarPerm extractEntry src/cvv8/v8-convert.hpp
+148 silly gunzTarPerm extractEntry src/gphoto.cc
+149 silly gunzTarPerm extractEntry src/gphoto.h
+150 silly gunzTarPerm extractEntry test/camera.test.coffee
+151 silly gunzTarPerm extractEntry test/mocha.opts
+152 silly gunzTarPerm extractEntry util/cpplint.py
+153 silly gunzTarPerm extractEntry util/cpplint.sh
+154 silly lockFile e1328933-s-wys3-npm-gphoto2-0-1-6-package tar:///Users/wys3/.npm/gphoto2/0.1.6/package
+155 silly lockFile e1328933-s-wys3-npm-gphoto2-0-1-6-package tar:///Users/wys3/.npm/gphoto2/0.1.6/package
+156 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+157 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+158 verbose chmod /Users/wys3/.npm/gphoto2/0.1.6/package.tgz 644
+159 verbose chown /Users/wys3/.npm/gphoto2/0.1.6/package.tgz [ 1614929210, 185223974 ]
+160 silly lockFile 347bf25e-js-org-gphoto2-gphoto2-0-1-6-tgz https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz
+161 silly lockFile 347bf25e-js-org-gphoto2-gphoto2-0-1-6-tgz https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz
+162 silly lockFile da13eeb8-gphoto2-0-1-6 gphoto2@0.1.6
+163 silly lockFile da13eeb8-gphoto2-0-1-6 gphoto2@0.1.6
+164 silly lockFile e67367ba-gphoto2 gphoto2@
+165 silly lockFile e67367ba-gphoto2 gphoto2@
+166 silly resolved [ { author: { name: 'Leonhardt Wille', email: 'wille@riverlabs.de' },
+166 silly resolved     name: 'gphoto2',
+166 silly resolved     description: 'Node.js wrapper for libgphoto2',
+166 silly resolved     version: '0.1.6',
+166 silly resolved     homepage: 'https://github.com/lwille/node-gphoto2',
+166 silly resolved     repository: { type: 'git', url: 'git://github.com/lwille/node-gphoto2.git' },
+166 silly resolved     engines: { node: '~0.10.0' },
+166 silly resolved     main: 'build/Release/gphoto2.node',
+166 silly resolved     dependencies: {},
+166 silly resolved     devDependencies:
+166 silly resolved      { async: '^0.2.10',
+166 silly resolved        'coffee-script': '^1.3.3',
+166 silly resolved        express: '^3.1.2',
+166 silly resolved        jade: '^0.28.2',
+166 silly resolved        mocha: '^1.9.0',
+166 silly resolved        'pre-commit': '0.0.4',
+166 silly resolved        should: '^1.2.2',
+166 silly resolved        sinon: '^1.6.0',
+166 silly resolved        superagent: '^0.14.9',
+166 silly resolved        underscore: '^1.4.4' },
+166 silly resolved     'pre-commit': [ 'cpplint' ],
+166 silly resolved     scripts:
+166 silly resolved      { cpplint: 'util/cpplint.sh',
+166 silly resolved        prepublish: 'npm run cpplint',
+166 silly resolved        preinstall: '((which pkg-config && pkg-config libgphoto2) || (which dpkg && dpkg -s libgphoto2-2-dev) || (which brew && brew list libgphoto2) || (echo \'ERROR: libgphoto2 seems not to be installed.\' 1>&2; exit 1)) && node-gyp rebuild',
+166 silly resolved        test: 'node_modules/mocha/bin/mocha' },
+166 silly resolved     license: 'MIT',
+166 silly resolved     contributors: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+166 silly resolved     readme: '# node-gphoto2\n\n[![Build Status](https://travis-ci.org/lwille/node-gphoto2.png?branch=master)](https://travis-ci.org/lwille/node-gphoto2)\n[![NPM version](https://badge.fury.io/js/gphoto2.png)](http://badge.fury.io/js/gphoto2)\n\nA Node.js wrapper for [libgphoto2](http://www.gphoto.org). Useful for remote controlling of DSLRs and other digital cameras supported by [gphoto2](http://www.gphoto.org).\n\nThe included test application currently allows you to\n\n* receive a live preview of your camera (if supported). Tested with an EOS 550D on a 2010 iMac at ~17 fps using Chrome (Safari doesn\'t work and FF is slow as hell).\n* query a list of available configuration options\n* query the values of specific configuration options\n\nThe test suite can be run using `npm test`. There\'s also a small test application in `test/test-server.coffee` which runs on `http://localhost:1337` and allows to change camera settings and to\ntake pictures.\n\n## Prerequisites\n\n* Node.js ~0.10.0\n* NPM ~1.2.15\n* libgphoto2 ~2.5.x - via `brew install libgphoto2`, `apt-get install libgphoto2-2-dev` or download and build from http://www.gphoto.org/proj/libgphoto2/\n* pkg-config | dpkg (used for dependency checking)\n* clang compiler\n\n## Test/dev prerequisites\n\n* async\n* coffee-script\n* mocha\n* pre-commit\n* should\n* sinon\n* superagent\n\n## Test-server prerequisites\n\n* express\n* jade\n* underscore\n\n## Installation\n\nAfter installing the dependencies, just install using:\n\n```\nnpm install gphoto2\n```\n\nIf it fails, please thoroughly check the output - link errors usually indicate missing dependencies.\nAlso, the script tries to detect wether libgphoto2 is correctly installed - if this check fails although you properly installed it, please report :)\n\n## Usage\n\nThis example only shows how to achieve certain tasks, it\'s not meant to be executed without any asynchronous control flow logic.\n\n```javascript\nvar gphoto2 = require(\'gphoto2\');\nvar GPhoto = new gphoto2.GPhoto2();\nvar fs = require(\'fs\');\n\n// List cameras / assign list item to variable to use below options\nGPhoto.list(function (list) {\n  if (list.length === 0) return;\n  var camera = list[0];\n  console.log(\'Found\', camera.model);\n\n  // get configuration tree\n  camera.getConfig(function (er, settings) {\n    console.log(settings);\n  });\n\n  // Set configuration values\n  camera.setConfigValue(\'capturetarget\', 1, function (er) {\n    //...\n  });\n\n  // Take picture with camera object obtained from list()\n  camera.takePicture({download: true}, function (er, data) {\n    fs.writeFileSync(__dirname + \'/picture.jpg\', data);\n  });\n\n  // Take picture without downloading immediately\n  camera.takePicture({download: false}, function (er, path) {\n    console.log(path);\n  });\n\n  // Take picture and download it to filesystem\n  camera.takePicture({\n    targetPath: \'/tmp/foo.XXXXXX\'\n  }, function (er, tmpname) {\n    fs.renameSync(tmpname, __dirname + \'/picture.jpg\');\n  });\n\n  // Download a picture from camera\n  camera.downloadPicture({\n    cameraPath: \'/store_00020001/DCIM/100CANON/IMG_1231.JPG\',\n    targetPath: \'/tmp/foo.XXXXXX\'\n  }, function (er, tmpname) {\n    fs.renameSync(tmpname, __dirname + \'/picture.jpg\');\n  });\n\n  // Get preview picture (from AF Sensor, fails silently if unsupported)\n  camera.takePicture({\n    preview: true,\n    targetPath: \'/tmp/foo.XXXXXX\'\n  }, function (er, tmpname) {\n    fs.renameSync(tmpname, __dirname + \'/picture.jpg\');\n  });\n});\n```\n\n## Versioning\n\nThis project uses [Semantic versioning](https://github.com/mojombo/semver).\n\n## Contributors\n\n* [Brian White](https://github.com/mscdex)\n* [David Noelte](https://github.com/marvin)\n* [Leonhardt Wille](https://github.com/lwille)\n* [Luigi Pinca](https://github.com/lpinca)\n* [Michael Kötter](https://github.com/michaelkoetter)\n',
+166 silly resolved     readmeFilename: 'README.md',
+166 silly resolved     bugs: { url: 'https://github.com/lwille/node-gphoto2/issues' },
+166 silly resolved     _id: 'gphoto2@0.1.6',
+166 silly resolved     dist: { shasum: 'f204a6b90488c997b5ca659171d882ef47724757' },
+166 silly resolved     _from: 'gphoto2@',
+166 silly resolved     _resolved: 'https://registry.npmjs.org/gphoto2/-/gphoto2-0.1.6.tgz' } ]
+167 info install gphoto2@0.1.6 into /Users/wys3/Documents/status_board/server
+168 info installOne gphoto2@0.1.6
+169 info /Users/wys3/Documents/status_board/server/node_modules/gphoto2 unbuild
+170 verbose tar unpack /Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+171 silly lockFile c81219cf-oard-server-node-modules-gphoto2 tar:///Users/wys3/Documents/status_board/server/node_modules/gphoto2
+172 verbose lock tar:///Users/wys3/Documents/status_board/server/node_modules/gphoto2 /Users/wys3/.npm/c81219cf-oard-server-node-modules-gphoto2.lock
+173 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+174 verbose lock tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz /Users/wys3/.npm/ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz.lock
+175 silly gunzTarPerm modes [ '755', '644' ]
+176 silly gunzTarPerm extractEntry package.json
+177 silly gunzTarPerm extractEntry .npmignore
+178 silly gunzTarPerm extractEntry README.md
+179 silly gunzTarPerm extractEntry LICENSE
+180 silly gunzTarPerm extractEntry .travis.yml
+181 silly gunzTarPerm extractEntry binding.gyp
+182 silly gunzTarPerm extractEntry examples/public/index.html
+183 silly gunzTarPerm extractEntry examples/public/js/dat.gui.js
+184 silly gunzTarPerm extractEntry examples/series.coffee
+185 silly gunzTarPerm extractEntry examples/server.coffee
+186 silly gunzTarPerm extractEntry src/autodetect.cc
+187 silly gunzTarPerm extractEntry src/binding.cc
+188 silly gunzTarPerm extractEntry src/binding.h
+189 silly gunzTarPerm extractEntry src/camera.cc
+190 silly gunzTarPerm extractEntry src/camera.h
+191 silly gunzTarPerm extractEntry src/camera_helpers.cc
+192 silly gunzTarPerm extractEntry src/cvv8/LICENSE
+193 silly gunzTarPerm extractEntry src/cvv8/convert.hpp
+194 silly gunzTarPerm extractEntry src/cvv8/Makefile
+195 silly gunzTarPerm extractEntry src/cvv8/NativeToJSMap.hpp
+196 silly gunzTarPerm extractEntry src/cvv8/V8Shell.hpp
+197 silly gunzTarPerm extractEntry src/cvv8/XTo.hpp
+198 silly gunzTarPerm extractEntry src/cvv8/arguments.hpp
+199 silly gunzTarPerm extractEntry src/cvv8/ClassCreator.hpp
+200 silly gunzTarPerm extractEntry src/cvv8/detail/Makefile
+201 silly gunzTarPerm extractEntry src/cvv8/detail/convert_core.hpp
+202 silly gunzTarPerm extractEntry src/cvv8/detail/doxygen_hack.hpp
+203 silly gunzTarPerm extractEntry src/cvv8/detail/invocable_core.hpp
+204 silly gunzTarPerm extractEntry src/cvv8/detail/invocable_generated.hpp
+205 silly gunzTarPerm extractEntry src/cvv8/detail/signature_core.hpp
+206 silly gunzTarPerm extractEntry src/cvv8/detail/signature_generated.hpp
+207 silly gunzTarPerm extractEntry src/cvv8/detail/tmp.hpp
+208 silly gunzTarPerm extractEntry src/cvv8/generator/Signature.hpp
+209 silly gunzTarPerm extractEntry src/cvv8/invocable.hpp
+210 silly gunzTarPerm extractEntry src/cvv8/properties.hpp
+211 silly gunzTarPerm extractEntry src/cvv8/signature.hpp
+212 silly gunzTarPerm extractEntry src/cvv8/v8-convert.hpp
+213 silly gunzTarPerm extractEntry src/gphoto.cc
+214 silly gunzTarPerm extractEntry src/gphoto.h
+215 silly gunzTarPerm extractEntry test/camera.test.coffee
+216 silly gunzTarPerm extractEntry test/mocha.opts
+217 silly gunzTarPerm extractEntry util/cpplint.py
+218 silly gunzTarPerm extractEntry util/cpplint.sh
+219 silly lockFile c81219cf-oard-server-node-modules-gphoto2 tar:///Users/wys3/Documents/status_board/server/node_modules/gphoto2
+220 silly lockFile c81219cf-oard-server-node-modules-gphoto2 tar:///Users/wys3/Documents/status_board/server/node_modules/gphoto2
+221 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+222 silly lockFile ed7e3eac-s3-npm-gphoto2-0-1-6-package-tgz tar:///Users/wys3/.npm/gphoto2/0.1.6/package.tgz
+223 info preinstall gphoto2@0.1.6
+224 verbose unsafe-perm in lifecycle true
+225 info gphoto2@0.1.6 Failed to exec preinstall script
+226 info /Users/wys3/Documents/status_board/server/node_modules/gphoto2 unbuild
+227 info preuninstall gphoto2@0.1.6
+228 info uninstall gphoto2@0.1.6
+229 verbose true,/Users/wys3/Documents/status_board/server/node_modules,/Users/wys3/Documents/status_board/server/node_modules unbuild gphoto2@0.1.6
+230 info postuninstall gphoto2@0.1.6
+231 error gphoto2@0.1.6 preinstall: `((which pkg-config && pkg-config libgphoto2) || (which dpkg && dpkg -s libgphoto2-2-dev) || (which brew && brew list libgphoto2) || (echo 'ERROR: libgphoto2 seems not to be installed.' 1>&2; exit 1)) && node-gyp rebuild`
+231 error Exit status 1
+232 error Failed at the gphoto2@0.1.6 preinstall script.
+232 error This is most likely a problem with the gphoto2 package,
+232 error not with npm itself.
+232 error Tell the author that this fails on your system:
+232 error     ((which pkg-config && pkg-config libgphoto2) || (which dpkg && dpkg -s libgphoto2-2-dev) || (which brew && brew list libgphoto2) || (echo 'ERROR: libgphoto2 seems not to be installed.' 1>&2; exit 1)) && node-gyp rebuild
+232 error You can get their info via:
+232 error     npm owner ls gphoto2
+232 error There is likely additional logging output above.
+233 error System Darwin 12.5.0
+234 error command "node" "/usr/local/bin/npm" "install" "gphoto2"
+235 error cwd /Users/wys3/Documents/status_board/server
+236 error node -v v0.10.26
+237 error npm -v 1.4.3
+238 error code ELIFECYCLE
+239 verbose exit [ 1, true ]

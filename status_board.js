@@ -10,7 +10,6 @@ var stylus = require('stylus');
 var BOARD = process.env.BOARD || config.trello.board;
 var APP_KEY = process.env.APP_KEY || config.trello.app_key;
 var APP_TOKEN = process.env.APP_TOKEN || config.trello.app_token;
-var MEMBER_ALLAN = process.env.MEMBER_ALLAN || config.trello.member_allan;
 var MEMBER_GREG = process.env.MEMBER_GREG || config.trello.member_greg;
 var MEMBER_STEVE = process.env.MEMBER_STEVE || config.trello.member_steve;
 var DOING_LIST = process.env.DOING_LIST || config.trello.doing_list;
@@ -63,12 +62,6 @@ app.route('/team').get(function(req,res) {
 		}
 	};
 
-	rest.get('https://api.trello.com/1/members/' + MEMBER_ALLAN + '?key=' + APP_KEY + '&token=' + APP_TOKEN, {timeout:10000}).on('complete', function(data){
-		getStatus(data.id,data.fullName,data.bio);
-	}).on('timeout', function(ms){
-  		console.log('Trello did not return MEMBER_ALLAN response within ' + ms + ' ms');
-	});
-
 	rest.get('https://api.trello.com/1/members/' + MEMBER_GREG + '?key=' + APP_KEY + '&token=' + APP_TOKEN, {timeout:10000}).on('complete', function(data){
 		getStatus(data.id,data.fullName,data.bio);
 	}).on('timeout', function(ms){
@@ -95,7 +88,7 @@ app.route('/projects').get(function(req,res) {
 			var team = [];
 
 			element.idMembers.forEach(function(element,index) {
-				if (element === MEMBER_ALLAN || element === MEMBER_GREG || element === MEMBER_STEVE) {
+				if (element === MEMBER_GREG || element === MEMBER_STEVE) {
 					team.push(element);
 				}
 			});
