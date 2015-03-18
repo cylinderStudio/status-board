@@ -12,7 +12,7 @@ var APP_KEY = process.env.APP_KEY || config.trello.app_key;
 var APP_TOKEN = process.env.APP_TOKEN || config.trello.app_token;
 var MEMBER_GREG = process.env.MEMBER_GREG || config.trello.member_greg;
 var MEMBER_STEVE = process.env.MEMBER_STEVE || config.trello.member_steve;
-var MEMBER_STEVE = process.env.MEMBER_MORGAN || config.trello.member_morgan;
+var MEMBER_MORGAN = process.env.MEMBER_MORGAN || config.trello.member_morgan;
 var DOING_LIST = process.env.DOING_LIST || config.trello.doing_list;
 var TODO_LIST = process.env.TODO_LIST || config.trello.todo_list;
 
