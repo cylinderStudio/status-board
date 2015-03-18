@@ -12,6 +12,7 @@ var APP_KEY = process.env.APP_KEY || config.trello.app_key;
 var APP_TOKEN = process.env.APP_TOKEN || config.trello.app_token;
 var MEMBER_GREG = process.env.MEMBER_GREG || config.trello.member_greg;
 var MEMBER_STEVE = process.env.MEMBER_STEVE || config.trello.member_steve;
+var MEMBER_STEVE = process.env.MEMBER_MORGAN || config.trello.member_morgan;
 var DOING_LIST = process.env.DOING_LIST || config.trello.doing_list;
 var TODO_LIST = process.env.TODO_LIST || config.trello.todo_list;
 
@@ -57,7 +58,7 @@ app.route('/team').get(function(req,res) {
 	var getStatus = function(member_id,member_name,member_bio) {
 		team_statuses.push({id: member_id, name: member_name, status: member_bio});
 
-		if (team_statuses.length === 2) {
+		if (team_statuses.length === 3) {
 			res.render('team',{title:'Team', team_statuses: team_statuses});
 		}
 	};
@@ -72,6 +73,12 @@ app.route('/team').get(function(req,res) {
 		getStatus(data.id,data.fullName,data.bio);
 	}).on('timeout', function(ms){
   		console.log('Trello did not return MEMBER_STEVE response within ' + ms + ' ms');
+	});
+
+	rest.get('https://api.trello.com/1/members/' + MEMBER_MORGAN + '?key=' + APP_KEY + '&token=' + APP_TOKEN, {timeout:10000}).on('complete', function(data){
+		getStatus(data.id,data.fullName,data.bio);
+	}).on('timeout', function(ms){
+  		console.log('Trello did not return MEMBER_MORGAN response within ' + ms + ' ms');
 	});
 });
 
