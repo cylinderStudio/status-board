@@ -95,7 +95,7 @@ app.route('/projects').get(function(req,res) {
 			var team = [];
 
 			element.idMembers.forEach(function(element,index) {
-				if (element === MEMBER_GREG || element === MEMBER_STEVE) {
+				if (element === MEMBER_GREG || element === MEMBER_STEVE || element === MEMBER_MORGAN) {
 					team.push(element);
 				}
 			});
